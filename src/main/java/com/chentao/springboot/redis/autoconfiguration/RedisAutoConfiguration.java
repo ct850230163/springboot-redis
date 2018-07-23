@@ -1,5 +1,6 @@
 package com.chentao.springboot.redis.autoconfiguration;
 
+import com.chentao.springboot.redis.util.RedisUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +25,11 @@ public class RedisAutoConfiguration {
         redisTemplate.setValueSerializer(new StringRedisSerializer());
         redisTemplate.setConnectionFactory(factory);
         return redisTemplate;
+    }
+
+    @Bean
+    RedisUtils redisUtils(){
+        return new RedisUtils();
     }
 
     @Bean
